@@ -2,7 +2,6 @@ package gram.com.pimo;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class MainActivity extends Activity
@@ -13,7 +12,7 @@ public class MainActivity extends Activity
         // 스플래시 화면 띄우기
         startActivity(new Intent(this, SplashActivity.class));
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.singin);
+        setContentView(R.layout.signin);
 
         initialize();  // 시간이 걸리는 작업 처리
     }

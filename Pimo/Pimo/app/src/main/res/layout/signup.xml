@@ -68,25 +68,27 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2.2"></LinearLayout>
+        android:layout_weight="2.2"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1.2"
+        android:layout_weight="1.1"
         android:gravity="center">
         <Button
             android:id="@+id/button_signup"
-            android:layout_width="330dp"
-            android:layout_height="70dp"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_height="match_parent"
             android:background="@drawable/round_circle"
             android:text="회원가입"
             android:textColor="@color/colorPrimary"
-            android:textSize="30dp"
+            android:textSize="24dp"
             />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"></LinearLayout>
+        android:layout_weight="1"/>
 </LinearLayout>
