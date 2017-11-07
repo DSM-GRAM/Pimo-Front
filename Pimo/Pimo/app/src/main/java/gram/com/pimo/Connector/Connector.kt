@@ -12,7 +12,7 @@ object Connector {
 
     var api: Api? = null
 
-    val url = ""
+    val url = "http://fdm.kr:5001/"
 
     init {
         val logger = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
