@@ -3,6 +3,7 @@ package gram.com.pimo.Util
 import android.content.Context
 import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
+import android.widget.EditText
 import android.widget.Toast
 
 /**
@@ -17,6 +18,10 @@ open class BaseActivity: AppCompatActivity() {
     fun getPref(): SharedPreferences{
         val pref = getSharedPreferences("pref", Context.MODE_PRIVATE)
         return pref
+    }
+
+    fun getStrToEdit(edit: EditText): String{
+        return edit.text.toString()
     }
 
 }
