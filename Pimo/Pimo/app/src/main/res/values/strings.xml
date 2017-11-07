@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name"></string>
+    <string name="underline"><u>회원이 아니신가요?</u></string>
 </resources>

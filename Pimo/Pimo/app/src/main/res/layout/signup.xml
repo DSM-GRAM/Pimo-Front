@@ -24,12 +24,13 @@
         android:layout_weight="1.2"
         android:gravity="center">
         <EditText
+            android:id="@+id/edit_cerfiation_id"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:textColorHint="#FFFFFF"
+            android:textColor="@android:color/white"
             android:hint="아이디를 입력하세요"
-            android:hintSize="20dp"
             android:padding="14dp"/>
     </LinearLayout>
     <LinearLayout
@@ -38,13 +39,14 @@
         android:layout_weight="1.2"
         android:gravity="center">
         <EditText
+            android:id="@+id/edit_cerfiation_password"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:textColorHint="#FFFFFF"
             android:hint="비밀번호를 입력하세요"
+            android:textColor="@android:color/white"
             android:inputType="textPassword"
-            android:hintSize="20dp"
             android:padding="14dp"/>
     </LinearLayout>
     <LinearLayout
@@ -53,13 +55,14 @@
         android:layout_weight="1.2"
         android:gravity="center">
         <EditText
+            android:id="@+id/edit_cerfiation_checkpassword"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:textColorHint="#FFFFFF"
             android:inputType="textPassword"
+            android:textColor="@android:color/white"
             android:hint="비밀번호를 확인하세요"
-            android:hintSize="20dp"
             android:padding="14dp"/>
     </LinearLayout>
     <LinearLayout
@@ -73,6 +76,7 @@
         android:layout_weight="1.2"
         android:gravity="center">
         <Button
+            android:id="@+id/button_signup"
             android:layout_width="330dp"
             android:layout_height="70dp"
             android:background="@drawable/round_circle"
