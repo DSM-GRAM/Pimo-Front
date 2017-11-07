@@ -27,16 +27,20 @@
         android:gravity="center"
         android:orientation="vertical">
         <EditText
+            android:id="@+id/edit_id"
             android:layout_width="370dp"
             android:layout_height="wrap_content"
             android:hint="아이디를 입력하세요"
+            android:textColor="@android:color/white"
             android:padding="14dp"
             android:textColorHint="#FFFFFF" />
         <EditText
+            android:id="@+id/edit_password"
             android:layout_width="370dp"
             android:layout_height="wrap_content"
             android:hint="비밀번호를 입력하세요"
             android:padding="14dp"
+            android:textColor="@android:color/white"
             android:inputType="textPassword"
             android:textColorHint="#FFFFFF" />
     </LinearLayout>
@@ -46,6 +50,7 @@
         android:layout_weight="4"
         android:gravity="center">
         <Button
+            android:id="@+id/button_signin"
             android:layout_width="350dp"
             android:layout_height="70dp"
             android:background="@drawable/round_circle"
@@ -61,11 +66,13 @@
         android:layout_weight="1"
         android:gravity="center_horizontal">
         <TextView
+            android:id="@+id/text_goto_cerfication"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="회원이 아니신가요?"
+            android:text="@string/underline"
             android:layout_margin="3dp"
             android:textColor="#FFFFFF"
             android:textSize="15dp"/>
+
     </LinearLayout>
 </LinearLayout>
