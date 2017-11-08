@@ -55,8 +55,10 @@
         android:gravity="center">
         <Button
             android:id="@+id/button_signin"
-            android:layout_width="350dp"
-            android:layout_height="70dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
             android:background="@drawable/round_circle"
             android:text="로그인"
             android:textColor="@color/colorPrimary"
