@@ -3,8 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
-    android:orientation="vertical">
+    android:background="@android:color/white">
     <Toolbar
         android:contentInsetStart="0dp"
         android:layout_width="match_parent"
@@ -40,11 +39,43 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        android:theme="@style/EditTheme"
         android:hint="제목"
-        android:padding="25dp"
+        android:paddingBottom="17dp"
+        android:paddingLeft="15dp"
         android:textColorHint="@color/colorPrimary"
         android:textSize="29dp" />
 </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="6.3"
+            android:orientation="vertical">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="내용"
+                android:paddingLeft="31dp"
+                android:theme="@style/EditTheme2"
+                android:textColorHint="#000000"
+                android:gravity="top"
+                android:textSize="20dp"
+                android:background="@drawable/edit_text_white"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.4">
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:text="위치 설정"
+                android:textSize="20dp"
+                android:background="@drawable/round_circle2"
+                />
+        </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>
