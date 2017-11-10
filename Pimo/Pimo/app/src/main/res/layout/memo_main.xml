@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         app:fabSize="normal"
-        app:backgroundTint="ff395e"
+        app:backgroundTint="#ff395e"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:src="@drawable/memo_add"/>

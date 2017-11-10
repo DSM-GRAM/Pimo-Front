@@ -25,7 +25,7 @@
         android:gravity="center">
         <EditText
             android:id="@+id/edit_cerfiation_id"
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:textColorHint="#FFFFFF"
@@ -40,7 +40,7 @@
         android:gravity="center">
         <EditText
             android:id="@+id/edit_cerfiation_password"
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:textColorHint="#FFFFFF"
@@ -56,7 +56,7 @@
         android:gravity="center">
         <EditText
             android:id="@+id/edit_cerfiation_checkpassword"
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:textColorHint="#FFFFFF"
@@ -80,7 +80,7 @@
             android:layout_width="match_parent"
             android:layout_marginLeft="32dp"
             android:layout_marginRight="32dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@drawable/round_circle"
             android:text="회원가입"
             android:textColor="@color/colorPrimary"
