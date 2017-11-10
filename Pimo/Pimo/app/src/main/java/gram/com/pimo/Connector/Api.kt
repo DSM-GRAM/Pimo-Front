@@ -2,6 +2,8 @@ package gram.com.pimo.Connector
 
 import com.google.gson.JsonObject
 import gram.com.pimo.Model.MemoModel
+import retrofit2.http.*
+
 import retrofit2.Call
 import retrofit2.http.*
 
