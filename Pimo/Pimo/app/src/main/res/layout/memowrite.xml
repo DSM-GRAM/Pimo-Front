@@ -12,10 +12,17 @@
         android:id="@+id/toolbar">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true">
-
+            android:layout_height="match_parent">
+            />
+            <ImageButton
+                android:id="@+id/back_btn"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="@color/colorPrimary"
+                android:onClick="onBackBtnClicked"
+                android:src="@drawable/back" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -23,50 +30,55 @@
                 android:text="메모 작성"
                 android:textColor="@android:color/white"
                 android:textSize="22dp" />
+
         </RelativeLayout>
     </Toolbar>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:weightSum="10"
+        android:layout_below="@id/toolbar"
         android:orientation="vertical">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="2.3">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:theme="@style/EditTheme"
-        android:hint="제목"
-        android:paddingBottom="17dp"
-        android:paddingLeft="15dp"
-        android:textColorHint="@color/colorPrimary"
-        android:textSize="29dp" />
-</LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="6.3"
-            android:orientation="vertical">
+            android:layout_weight="1.3">
+
             <EditText
+                android:id="@+id/edit_title_text"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:hint="제목"
+                android:padding="15dp"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="29dp"
+                android:theme="@style/EditTheme" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="7.3"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/edit_maintext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_white"
                 android:hint="내용"
-                android:paddingLeft="31dp"
-                android:theme="@style/EditTheme2"
+                android:paddingLeft="35dp"
                 android:textColorHint="#000000"
-                android:gravity="top"
                 android:textSize="20dp"
-                android:background="@drawable/edit_text_white"/>
+                android:theme="@style/EditTheme2" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1.4">
             <Button
+                android:id="@+id/Button_gps"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="32dp"
