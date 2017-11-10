@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Toolbar
+        android:contentInsetStart="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:id="@+id/toolbar">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            />
+            <TextView
+                android:id="@+id/text_modified"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="수정"
+                android:textSize="22dp"
+                android:textColor="@android:color/white"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="메모"
+                android:textColor="@android:color/white"
+                android:textSize="22dp" />
+
+        </RelativeLayout>
+    </Toolbar>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:weightSum="10"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="bottom">
+        <TextView
+            android:id="@+id/text_maintitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="대마고 귀사"
+            android:layout_marginLeft="15dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="30dp"
+            />
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7">
+        <TextView
+            android:id="@+id/text_contents"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="늦으면 벌점"
+            android:textSize="25dp"
+            android:layout_marginLeft="25dp"
+            android:textColor="@android:color/black"
+            />
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3.7"
+            android:gravity="bottom">
+            <view
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimary"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4.2">
+            <fragment
+                android:id="@+id/map"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15dp" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/text_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="위치: 대전광역시 유성구...."
+            android:textSize="20dp"
+        android:layout_alignParentBottom="true"
+            android:layout_marginLeft="30dp"
+        />
+    </LinearLayout>
+
+</RelativeLayout>
