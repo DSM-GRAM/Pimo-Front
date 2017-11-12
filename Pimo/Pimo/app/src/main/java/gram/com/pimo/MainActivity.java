@@ -12,7 +12,6 @@ public class MainActivity extends Activity {
         startActivity(new Intent(this, SplashActivity.class));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signin);
-
         initialize();  // 시간이 걸리는 작업 처리
     }
 
