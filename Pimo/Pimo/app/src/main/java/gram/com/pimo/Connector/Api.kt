@@ -2,8 +2,6 @@ package gram.com.pimo.Connector
 
 import com.google.gson.JsonObject
 import gram.com.pimo.Model.MemoModel
-import retrofit2.http.*
-
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -14,11 +12,11 @@ interface Api {
 
     @POST("auth")
     @FormUrlEncoded
-    fun signUp(@Field("id")id: String, @Field("pw")pw: String): Call<JsonObject>
+    fun signIn(@Field("id")id: String, @Field("pw")pw: String): Call<JsonObject>
 
     @POST("sign_up")
     @FormUrlEncoded
-    fun signIn(@Field("id")id: String, @Field("pw")pw: String): Call<Void>
+    fun signUp(@Field("id")id: String, @Field("pw")pw: String): Call<Void>
 
     @POST("add_memo")
     @FormUrlEncoded

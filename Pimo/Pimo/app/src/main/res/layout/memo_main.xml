@@ -22,6 +22,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:text="편집"
+                android:textColor="#FFFF"
                 android:textSize="18dp"
                 android:background="@android:color/transparent"
                 android:layout_alignParentRight="true"
