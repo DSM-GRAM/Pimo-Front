@@ -7,7 +7,7 @@ import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import gram.com.pimo.Model.TempModel;
+import gram.com.pimo.Model.MemoListModel;
 import gram.com.pimo.R;
 import gram.com.pimo.Util.BaseActivity;
 
@@ -25,14 +25,9 @@ public class MemoListActivity extends BaseActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager((this)));
         MemoListAdapter adapter = new MemoListAdapter();
         recyclerView.setAdapter(adapter);
-        ArrayList<TempModel> data = new ArrayList<>();
+        ArrayList<MemoListModel> data = new ArrayList<>();
 
-        data.add(new TempModel("엄마", "010-1234", "07:30", "1234", "ㅇㅋㅇㅋ"));
-        data.add(new TempModel("엄마", "010-1234", "07:30", "1234", "ㅇㅋㅇㅋ"));
-        data.add(new TempModel("엄마", "010-1234", "07:30", "1234", "ㅇㅋㅇㅋ"));
-        data.add(new TempModel("엄마", "010-1234", "07:30", "1234", "ㅇㅋㅇㅋ"));
-        data.add(new TempModel("엄마", "010-1234", "07:30", "1234", "ㅇㅋㅇㅋ"));
-        data.add(new TempModel("엄마", "010-1234", "07:30", "1234", "ㅇㅋㅇㅋ"));
+        data.add(new MemoListModel("대덕소프트웨어 ", "대전시 유성구", "늦으면 벌점"));
 
 
 

@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import gram.com.pimo.Model.TempModel;
+import gram.com.pimo.Model.MemoListModel;
 import gram.com.pimo.R;
 
 /**
@@ -16,6 +16,8 @@ import gram.com.pimo.R;
  */
 
 public class MemoListAdapter extends RecyclerView.Adapter<MemoListViewHolder> {
+
+    private ArrayList<MemoListModel> data = new ArrayList<>();
 
     @Override
     public MemoListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -27,6 +29,7 @@ public class MemoListAdapter extends RecyclerView.Adapter<MemoListViewHolder> {
     public void onBindViewHolder(MemoListViewHolder holder, int position) {
         holder.titleText.setText(data.get(position).getTitle());
         holder.contentText.setText(data.get(position).getContent());
+        holder.locText.setText(data.get(position).getLoc());
     }
 
     @Override
@@ -34,12 +37,11 @@ public class MemoListAdapter extends RecyclerView.Adapter<MemoListViewHolder> {
         return data.size();
     }
 
-    public void getData(ArrayList<TempModel> data){
+    public void getData(ArrayList<MemoListModel> data){
         this.data = data;
-        notifyDataSetChanged();
+        notifyDataSetChanged(); //데이터가 바뀌었음을 알려줌
     }
 
-    private ArrayList<TempModel> data = new ArrayList<>();
 
 }
 
@@ -49,7 +51,9 @@ class MemoListViewHolder extends RecyclerView.ViewHolder {
 
     public MemoListViewHolder(View itemView) {
         super(itemView);
-        titleText = (TextView)itemView.findViewById(R.id.textView1);
+        titleText = (TextView)itemView.findViewById(R.id.title_text);
+        contentText = (TextView)itemView.findViewById(R.id.content_text);
+        locText = (TextView)itemView.findViewById(R.id.loc_text);
 
     }
 
