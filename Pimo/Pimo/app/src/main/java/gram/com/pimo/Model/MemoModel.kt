@@ -9,7 +9,7 @@ import java.io.Serializable
  * Created by root1 on 2017. 11. 10..
  */
 
-class MemoModel: Serializable, RealmObject(){
+open class MemoModel: Serializable, RealmObject(){
 
     @SerializedName("longitute")
     var longi: String = ""
@@ -28,6 +28,6 @@ class MemoModel: Serializable, RealmObject(){
     var id: String = ""
 
     @SerializedName("address")
-    val address: String = ""
+    var address: String = ""
 
 }

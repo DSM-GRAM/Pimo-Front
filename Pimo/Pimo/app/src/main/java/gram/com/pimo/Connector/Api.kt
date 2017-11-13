@@ -20,16 +20,16 @@ interface Api {
 
     @POST("add_memo")
     @FormUrlEncoded
-    fun addMemo(@Field("title")title: String, @Field("content")content: String, @Field("latitude")latitude: String, @Field("longitute")longitute: String): Call<JsonObject>
+    fun addMemo(@Header("Authorization")token: String, @Field("title")title: String, @Field("content")content: String, @Field("latitude")latitude: String, @Field("longitute")longitute: String): Call<JsonObject>
 
     @DELETE("delete_memo")
-    fun deleteMemo(@Query("_id")id: String): Call<Void>
+    fun deleteMemo(@Header("Authorization")token: String, @Query("_id")id: String): Call<Void>
 
     @GET("load_memo")
-    fun loadMemo(): Call<Array<MemoModel>>
+    fun loadMemo(@Header("Authorization")token: String): Call<Array<MemoModel>>
 
     @POST("update_memo")
-    fun updateMemo(): Call<MemoModel>
+    fun updateMemo(@Header("Authorization")token: String, @Field("_id")id: String, @Field("title")title: String, @Field("content")content: String, @Field("latitude")latitude: String, @Field("longitute")longitute: String): Call<MemoModel>
 
 
 }

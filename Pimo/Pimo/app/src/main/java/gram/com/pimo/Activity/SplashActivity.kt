@@ -2,7 +2,6 @@ package gram.com.pimo.Activity
 
 import android.content.Intent
 import android.os.Bundle
-import gram.com.pimo.ForAS.MemoListActivity
 import gram.com.pimo.R
 import gram.com.pimo.Util.BaseActivity
 

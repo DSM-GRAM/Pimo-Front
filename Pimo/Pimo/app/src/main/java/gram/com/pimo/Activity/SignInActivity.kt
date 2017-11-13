@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import com.google.gson.JsonObject
 import gram.com.pimo.Connector.Connector
-import gram.com.pimo.ForAS.MemoListActivity
 import gram.com.pimo.R
 import gram.com.pimo.Util.BaseActivity
 import kotlinx.android.synthetic.main.signin.*
@@ -44,6 +43,11 @@ class SignInActivity : BaseActivity() {
                     }
                 })
             }
+        }
+
+        text_goto_cerfication.setOnClickListener {
+            val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
         }
 
 

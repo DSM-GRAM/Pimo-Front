@@ -10,12 +10,16 @@ import android.widget.BaseAdapter
 import com.baoyz.swipemenulistview.SwipeMenu
 import com.baoyz.swipemenulistview.SwipeMenuItem
 import com.baoyz.swipemenulistview.SwipeMenuListView
+import gram.com.pimo.Connector.Connector
 import gram.com.pimo.Model.MemoModel
 import gram.com.pimo.R
 import gram.com.pimo.Util.BaseActivity
 import io.realm.RealmResults
 import kotlinx.android.synthetic.main.memo_main.*
 import kotlinx.android.synthetic.main.memolist_item.view.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 /**
  * Created by root1 on 2017. 11. 12..
@@ -24,9 +28,18 @@ import kotlinx.android.synthetic.main.memolist_item.view.*
 class MemoListActivity: BaseActivity(){
 
     var dataArr : RealmResults<MemoModel>? = null
+    val adapter = MemoListAdapter()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    fun bind(){
+        val data = getRealm().where(MemoModel::class.java).findAll()
+        adapter.bind(data)
+    }
+
+    fun setListView(){
+
+        listView.adapter = adapter
+        bind()
+
         listView.setMenuCreator {
             menu ->
             val deleteItem = SwipeMenuItem(this)
@@ -35,11 +48,6 @@ class MemoListActivity: BaseActivity(){
             deleteItem.setIcon(R.drawable.icon_delete)
             menu.addMenuItem(deleteItem)
         }
-
-        val adapter = MemoListAdapter()
-        dataArr = getRealm().where(MemoModel::class.java).findAll()
-        adapter.bind(dataArr!!)
-        listView.adapter = adapter
 
         listView.setOnItemClickListener { _, _, pos, _ ->
             val selectData = dataArr?.get(pos)
@@ -50,22 +58,68 @@ class MemoListActivity: BaseActivity(){
             startActivity(intent)
         }
 
+
         listView.setOnMenuItemClickListener(object : SwipeMenuListView.OnMenuItemClickListener {
             override fun onMenuItemClick(position: Int, menu: SwipeMenu?, index: Int): Boolean {
                 if(index == 0){
-                    val realm = getRealm()
-                    realm.beginTransaction()
-                    dataArr?.get(position)?.deleteFromRealm()
-                    realm.commitTransaction()
+                    Connector.api?.deleteMemo(getToken(), dataArr!!.get(position).id)?.enqueue(object : Callback<Void>{
+                        override fun onFailure(call: Call<Void>?, t: Throwable?) {
+                            t?.printStackTrace()
+                        }
 
-                    dataArr = getRealm().where(MemoModel::class.java).findAll()
-                    adapter.bind(dataArr!!)
+                        override fun onResponse(call: Call<Void>?, response: Response<Void>?) {
+                            if(response?.code() == 201){
+                                getRealm().executeTransaction {
+                                    realm ->
+                                    dataArr!!.get(position).deleteFromRealm()
+                                }
+
+                                bind()
+                            }else{
+                                showToast("삭제를 실패했습니다.")
+                            }
+                        }
+                    })
+
                 }
 
                 return false
             }
         })
+    }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        Connector.api?.loadMemo(getToken())?.enqueue(object : Callback<Array<MemoModel>>{
+            override fun onResponse(call: Call<Array<MemoModel>>?, response: Response<Array<MemoModel>>?) {
+                if(response?.code() == 200){
+
+                    getRealm().executeTransaction {
+                        realm ->
+                        realm.deleteAll()
+                    }
+
+                    getRealm().executeTransaction {
+                        realm ->
+                        for(memo in response?.body()!!) {
+                            realm.copyFromRealm(memo)
+                        }
+                    }
+
+                    bind()
+
+                }else{
+                    showToast("데이터 로드 실패")
+                }
+            }
+
+            override fun onFailure(call: Call<Array<MemoModel>>?, t: Throwable?) {
+                t?.printStackTrace()
+            }
+        })
+
+        setListView()
     }
 }
 

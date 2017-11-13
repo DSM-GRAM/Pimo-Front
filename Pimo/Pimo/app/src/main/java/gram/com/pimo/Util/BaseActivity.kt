@@ -39,6 +39,10 @@ open class BaseActivity: AppCompatActivity() {
         return pref
     }
 
+    fun getToken(): String{
+        return getPref().getString("token", "")
+    }
+
     fun getStrToEdit(edit: EditText): String{
         return edit.text.toString()
     }

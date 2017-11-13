@@ -22,13 +22,14 @@ class MemoContentActivity: BaseActivity(){
 
         text_modified.setOnClickListener {
             val intent = Intent()
+            val bundle = Bundle()
+            bundle.putSerializable("data", data)
+            startActivity(intent)
         }
 
+        text_memo.text = data.title
         text_contents.text = data.content
         text_location.text = "위치 : ${data.address}"
-
-
-
 
     }
 
