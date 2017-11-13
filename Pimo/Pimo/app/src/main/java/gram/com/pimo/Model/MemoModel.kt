@@ -27,4 +27,7 @@ class MemoModel: Serializable, RealmObject(){
     @SerializedName("_id")
     var id: String = ""
 
+    @SerializedName("address")
+    val address: String = ""
+
 }
