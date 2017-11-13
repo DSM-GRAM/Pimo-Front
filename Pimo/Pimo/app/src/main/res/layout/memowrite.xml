@@ -84,6 +84,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="32dp"
                 android:layout_marginRight="32dp"
+                android:textColor="@android:color/white"
                 android:text="위치 설정"
                 android:textSize="20dp"
                 android:background="@drawable/round_circle2"

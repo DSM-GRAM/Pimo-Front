@@ -17,19 +17,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
-                android:id="@+id/memoEdit_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:text="편집"
-                android:textColor="#FFFF"
-                android:textSize="18dp"
-                android:background="@android:color/transparent"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginRight="8dp"/>
-            <TextView
                 android:id="@+id/memolist"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -49,11 +36,11 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:src="@drawable/memo_add"/>
-    <android.support.v7.widget.RecyclerView
+
+    <com.baoyz.swipemenulistview.SwipeMenuListView
         android:layout_below="@id/memo_toolbar"
-        android:id="@+id/memo_recyclerView"
+        android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </android.support.v7.widget.RecyclerView>
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>
