@@ -1,5 +1,6 @@
 package gram.com.pimo.Activity
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -22,6 +23,8 @@ import kotlinx.android.synthetic.main.memolist_item.view.*
 
 class MemoListActivity: BaseActivity(){
 
+    var dataArr : RealmResults<MemoModel>? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         listView.setMenuCreator {
@@ -33,19 +36,30 @@ class MemoListActivity: BaseActivity(){
             menu.addMenuItem(deleteItem)
         }
 
-        var dataArr = getRealm().where(MemoModel::class.java).findAll()
         val adapter = MemoListAdapter()
-        adapter.bind(dataArr)
+        dataArr = getRealm().where(MemoModel::class.java).findAll()
+        adapter.bind(dataArr!!)
         listView.adapter = adapter
+
+        listView.setOnItemClickListener { _, _, pos, _ ->
+            val selectData = dataArr?.get(pos)
+            val intent = Intent(this, MemoWriteActivity::class.java)
+            val bundle = Bundle()
+            bundle.putSerializable("data", selectData)
+            intent.putExtras(bundle)
+            startActivity(intent)
+        }
 
         listView.setOnMenuItemClickListener(object : SwipeMenuListView.OnMenuItemClickListener {
             override fun onMenuItemClick(position: Int, menu: SwipeMenu?, index: Int): Boolean {
                 if(index == 0){
                     val realm = getRealm()
                     realm.beginTransaction()
-                    dataArr.get(position).deleteFromRealm()
+                    dataArr?.get(position)?.deleteFromRealm()
                     realm.commitTransaction()
-                    adapter.bind(getRealm().where(MemoModel::class.java).findAll())
+
+                    dataArr = getRealm().where(MemoModel::class.java).findAll()
+                    adapter.bind(dataArr!!)
                 }
 
                 return false

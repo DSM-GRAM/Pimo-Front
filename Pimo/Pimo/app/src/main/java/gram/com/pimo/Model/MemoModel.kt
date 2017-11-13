@@ -3,12 +3,13 @@ package gram.com.pimo.Model
 import com.google.gson.annotations.SerializedName
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
+import java.io.Serializable
 
 /**
  * Created by root1 on 2017. 11. 10..
  */
 
-class MemoModel: RealmObject(){
+class MemoModel: Serializable, RealmObject(){
 
     @SerializedName("longitute")
     var longi: String = ""
