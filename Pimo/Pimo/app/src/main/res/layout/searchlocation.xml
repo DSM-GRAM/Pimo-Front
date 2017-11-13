@@ -50,10 +50,7 @@
             android:hint="주소 입력"
             android:paddingLeft="15dp"
             android:paddingBottom="15dp"
-            android:layout_gravity="bottom">
-
-
-        </EditText>
+            android:layout_gravity="bottom"/>
     </LinearLayout>
 
     <LinearLayout
