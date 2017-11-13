@@ -22,7 +22,7 @@ class SignUpActivity: BaseActivity() {
             if(getStrToEdit(edit_cerfiation_id).isEmpty() || getStrToEdit(edit_cerfiation_password).isEmpty() || getStrToEdit(edit_cerfiation_checkpassword).isEmpty()){
                 showToast("값을 다 입력하세요.")
             }else{
-                if (getStrToEdit(edit_cerfiation_password) == getStrToEdit(edit_cerfiation_checkpassword)){
+                if (getStrToEdit(edit_cerfiation_password) === getStrToEdit(edit_cerfiation_checkpassword)){
                     edit_cerfiation_checkpassword.setText("")
                     showToast("비밀번호를 다시 확인하세요.")
                 }else{

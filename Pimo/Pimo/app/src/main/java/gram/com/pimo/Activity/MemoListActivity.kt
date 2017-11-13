@@ -119,6 +119,10 @@ class MemoListActivity: BaseActivity(){
             }
         })
 
+        write_memo.setOnClickListener {
+
+        }
+
         setListView()
     }
 }
