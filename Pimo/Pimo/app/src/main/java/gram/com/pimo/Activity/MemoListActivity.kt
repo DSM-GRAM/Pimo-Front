@@ -28,7 +28,7 @@ import retrofit2.Response
 class MemoListActivity: BaseActivity(){
 
     var dataArr : RealmResults<MemoModel>? = null
-    val adapter = MemoListAdapter()
+    lateinit var adapter : MemoListAdapter
 
     fun bind(){
         val data = getRealm().where(MemoModel::class.java).findAll()
@@ -90,6 +90,9 @@ class MemoListActivity: BaseActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.memo_main)
+
+        adapter = MemoListAdapter()
 
         Connector.api?.loadMemo(getToken())?.enqueue(object : Callback<Array<MemoModel>>{
             override fun onResponse(call: Call<Array<MemoModel>>?, response: Response<Array<MemoModel>>?) {
@@ -120,7 +123,8 @@ class MemoListActivity: BaseActivity(){
         })
 
         write_memo.setOnClickListener {
-
+            val intent = Intent(this, MemoWriteActivity::class.java)
+            startActivity(intent)
         }
 
         setListView()

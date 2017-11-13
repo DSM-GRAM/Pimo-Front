@@ -40,7 +40,7 @@ open class BaseActivity: AppCompatActivity() {
     }
 
     fun getToken(): String{
-        return getPref().getString("token", "")
+        return "JWT " + getPref().getString("token", "")
     }
 
     fun getStrToEdit(edit: EditText): String{

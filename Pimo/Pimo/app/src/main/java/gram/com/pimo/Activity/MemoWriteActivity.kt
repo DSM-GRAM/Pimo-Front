@@ -16,7 +16,7 @@ class MemoWriteActivity: BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.memowrite)
 
-        val data = intent.extras.getSerializable("data") as? MemoModel
+        val data = intent.extras?.getSerializable("data") as? MemoModel
 
         data?.let {
             edit_title_text.setText(data.title)
