@@ -1,12 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="gram.com.pimo.SplashActivity">
-<ImageView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:src="@drawable/splash"
-    android:scaleType="centerCrop"/>
-</LinearLayout>
+    android:background="@color/colorPrimary">
+
+   <LinearLayout
+       android:layout_centerInParent="true"
+       android:gravity="center"
+       android:paddingBottom="32dp"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:orientation="vertical">
+
+       <ImageView
+           android:src="@drawable/pimo_icon_white"
+           android:layout_width="300dp"
+           android:layout_height="150dp" />
+       <TextView
+           android:textStyle="bold"
+           android:textSize="26dp"
+           android:textColor="#FFFFFF"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Loding....."/>
+
+
+   </LinearLayout>
+</RelativeLayout>
