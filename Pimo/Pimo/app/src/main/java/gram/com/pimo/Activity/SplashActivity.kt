@@ -19,7 +19,12 @@ class SplashActivity: BaseActivity(){
             val intent = Intent(this, SignInActivity::class.java)
             startActivity(intent)
         }else{
+<<<<<<< HEAD
             val intent = Intent(this, MemoListActivity::class.java)
+=======
+//            val intent = Intent(this, MemoListActivity::class.java)
+            val intent = Intent(this, MemocompleteActivity::class.java)
+>>>>>>> df1babcf3346086233a153b086185a3fc0f56f51
             startActivity(intent)
         }
 
