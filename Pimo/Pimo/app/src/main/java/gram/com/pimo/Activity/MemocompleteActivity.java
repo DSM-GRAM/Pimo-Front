@@ -29,7 +29,6 @@ public class MemocompleteActivity extends BaseActivity implements OnMapReadyCall
 
         lat = 0.0d;
         lng = 0.0d;
-
         mMapFragment = MapFragment.newInstance();
         FragmentTransaction fragmentTransaction =
                 getFragmentManager().beginTransaction();

@@ -9,7 +9,10 @@ import com.google.android.gms.tasks.Task
 /**
  * Created by root1 on 2017. 11. 10..
  */
-
+/* algorithmuser (lat1, lng1)
+target (lat2, lng2)
+114640 * (lat1 - lat2)^2 + 88000 * (lng1 - lng2)^2 <= 2500
+*/
 class FindManager(context: Context){
 
     init {
