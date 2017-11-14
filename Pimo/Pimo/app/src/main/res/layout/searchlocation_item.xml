@@ -1,26 +1,16 @@
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="200dp">
+    android:layout_height="60dp">
 
-
-    <LinearLayout
+    <TextView
+        android:layout_centerVertical="true"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="12dp"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:text="title"
+        android:id="@+id/id_text"
+        android:layout_marginLeft="16dp"
+        android:textSize="24dp"/>
 
-        <TextView
-            android:id="@+id/title_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:gravity="center_vertical"
-            android:text="대전광역시 유성구 장동"
-            android:textColor="#5c5c5c"
-            android:textSize="30dp" />
-
-
-    </LinearLayout>
-</LinearLayout>
+</RelativeLayout>

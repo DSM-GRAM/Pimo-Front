@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
+
     <android.support.v7.widget.Toolbar
-        android:id="@+id/memo_toolbar"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="?attr/actionBarSize"
         android:layout_alignParentTop="true"
         android:background="@color/colorPrimary"
-        app:contentInsetStart="0dp"
+        app:contentInsetStart="4dp"
         app:contentInsetEnd="0dp">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
             <ImageButton
                 android:id="@+id/back_btn"
                 android:layout_width="25dp"
@@ -36,42 +37,36 @@
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
 
-    <LinearLayout
+    <RelativeLayout
+        android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.5">
+        android:layout_height="match_parent">
 
         <EditText
-
+            android:id="@+id/loc_edit"
+            android:layout_margin="8dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:theme="@style/EditTextStyle"
-            android:hint="주소 입력"
-            android:paddingLeft="15dp"
-            android:paddingBottom="15dp"
-            android:layout_gravity="bottom"/>
-    </LinearLayout>
+            android:hint="위치입력"
+            android:layout_height="wrap_content" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="5.5">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_below="@id/loc_edit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
         <Button
-            android:id="@+id/button_complete"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/find_button"
+            android:textColor="#FFFFFF"
+            android:textSize="18dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="25dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
+            android:layout_margin="4dp"
             android:background="@drawable/round_circle2"
-            android:text="위치 설정"
-            android:textColor="@android:color/white"
-            android:textSize="20dp"
-            android:layout_gravity="bottom"/>
-    </LinearLayout>
+            android:layout_width="match_parent"
+            android:text="위치검색"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
 
 
-
-</LinearLayout>
+</RelativeLayout>

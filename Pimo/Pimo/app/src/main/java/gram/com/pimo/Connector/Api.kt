@@ -1,6 +1,7 @@
 package gram.com.pimo.Connector
 
 import com.google.gson.JsonObject
+import gram.com.pimo.Model.LocationListModel
 import gram.com.pimo.Model.MemoModel
 import retrofit2.Call
 import retrofit2.http.*
@@ -30,6 +31,9 @@ interface Api {
 
     @POST("update_memo")
     fun updateMemo(@Header("Authorization")token: String, @Field("_id")id: String, @Field("title")title: String, @Field("content")content: String, @Field("latitude")latitude: String, @Field("longitute")longitute: String): Call<MemoModel>
+
+    @GET("search_location")
+    fun searchLocation(@Query("search")key: String): Call<Array<LocationListModel>>
 
 
 }

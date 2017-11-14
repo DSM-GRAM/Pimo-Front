@@ -24,7 +24,7 @@ class MemoWriteActivity: BaseActivity() {
         }
 
         Button_gps.setOnClickListener {
-            val intent = Intent(this, MemoContentActivity::class.java)
+            val intent = Intent(this, LocationSetActivity::class.java)
             val bundle = Bundle()
 
             if(data == null){
