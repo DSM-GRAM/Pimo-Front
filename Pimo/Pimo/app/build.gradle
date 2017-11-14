@@ -48,6 +48,8 @@ dependencies {
 
     compile 'com.baoyz.swipemenulistview:library:1.3.0'
 
+    compile 'com.google.android.gms:play-services-maps:11.0.2'
+
 }
 repositories {
     mavenCentral()

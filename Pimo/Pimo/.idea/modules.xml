@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Pimo.iml" filepath="$PROJECT_DIR$/Pimo.iml" />
+      <module fileurl="file://C:\Users\dsm2017\Desktop\Pimo-Front\Pimo\Pimo\Pimo.iml" filepath="C:\Users\dsm2017\Desktop\Pimo-Front\Pimo\Pimo\Pimo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\dsm2017\Desktop\Pimo-Front\Pimo\Pimo\app\app.iml" filepath="C:\Users\dsm2017\Desktop\Pimo-Front\Pimo\Pimo\app\app.iml" />
     </modules>
   </component>
 </project>
