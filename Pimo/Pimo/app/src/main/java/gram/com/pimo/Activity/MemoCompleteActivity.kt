@@ -39,7 +39,7 @@ class MemoCompleteActivity: BaseActivity() {
 
         mapFragment.getMapAsync(object : OnMapReadyCallback{
             override fun onMapReady(map: GoogleMap) {
-                map.addMarker(MarkerOptions().position(laLong))
+                map.addMarker(MarkerOptions().position(laLong).title(data.title))
                 map.moveCamera(CameraUpdateFactory.newLatLng(laLong))
             }
         })
