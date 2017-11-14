@@ -40,7 +40,7 @@ class LocationSetActivity: BaseActivity() {
             if(loc_edit.text.toString().isEmpty()){
 
             }else{
-                Connector.api?.searchLocation(loc_edit.text.toString())?.enqueue(object : Callback<Array<LocationListModel>>{
+                Connector.api?.searchLocation("청와대")?.enqueue(object : Callback<Array<LocationListModel>>{
                     override fun onFailure(call: Call<Array<LocationListModel>>?, t: Throwable?) {
                         t?.printStackTrace()
                     }

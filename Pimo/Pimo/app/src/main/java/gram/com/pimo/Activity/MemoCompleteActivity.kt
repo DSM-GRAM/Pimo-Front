@@ -1,10 +1,12 @@
 package gram.com.pimo.Activity
 
+import android.graphics.Color
 import android.os.Bundle
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapFragment
 import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.model.CircleOptions
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import gram.com.pimo.Connector.Connector
@@ -39,8 +41,12 @@ class MemoCompleteActivity: BaseActivity() {
 
         mapFragment.getMapAsync(object : OnMapReadyCallback{
             override fun onMapReady(map: GoogleMap) {
-                map.addMarker(MarkerOptions().position(laLong).title(data.title))
-                map.moveCamera(CameraUpdateFactory.newLatLng(laLong))
+                map.addMarker(MarkerOptions().position(laLong))
+                map.moveCamera(CameraUpdateFactory.newLatLngZoom(laLong, 15.0f))
+                map.addCircle(CircleOptions()
+                        .center(laLong)
+                        .radius(50.0)
+                        .fillColor(Color.WHITE))
             }
         })
 
