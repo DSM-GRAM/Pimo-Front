@@ -22,6 +22,8 @@ class SplashActivity: BaseActivity(){
             val intent = Intent(this, MemoListActivity::class.java)
             startActivity(intent)
         }
+
+        finish()
     }
 
 }
