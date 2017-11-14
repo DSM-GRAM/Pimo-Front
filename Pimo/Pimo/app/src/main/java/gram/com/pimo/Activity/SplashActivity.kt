@@ -19,8 +19,8 @@ class SplashActivity: BaseActivity(){
             val intent = Intent(this, SignInActivity::class.java)
             startActivity(intent)
         }else{
-            // val intent = Intent(this, MemoListActivity::class.java)
-            val intent = Intent(this, MemocompleteActivity::class.java)
+            val intent = Intent(this, MemoListActivity::class.java)
+//            val intent = Intent(this, MemocompleteActivity::class.java)
             startActivity(intent)
         }
 
