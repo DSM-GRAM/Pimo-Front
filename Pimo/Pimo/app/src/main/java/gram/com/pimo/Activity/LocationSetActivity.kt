@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,7 +24,8 @@ import retrofit2.Response
  */
 class LocationSetActivity: BaseActivity() {
 
-    val adapter = LocationSetAdapter()
+    val adapter = LocationSetAdapter(this)
+    var activity = this
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,8 +41,6 @@ class LocationSetActivity: BaseActivity() {
 
             }else{
                 Connector.api?.searchLocation(loc_edit.text.toString())?.enqueue(object : Callback<Array<LocationListModel>>{
-
-
                     override fun onFailure(call: Call<Array<LocationListModel>>?, t: Throwable?) {
                         t?.printStackTrace()
                     }
@@ -58,56 +58,67 @@ class LocationSetActivity: BaseActivity() {
 
     }
 
-    class LocationSetAdapter: RecyclerView.Adapter<LocationViewHolder>() {
+}
 
-        var data = emptyArray<LocationListModel>()
-        var sendData = MemoModel()
+class LocationSetAdapter(activity: BaseActivity): RecyclerView.Adapter<LocationViewHolder>() {
 
-        fun bind(data: Array<LocationListModel>, sendData: MemoModel){
-            this.data = data
-            this.sendData = sendData
-            notifyDataSetChanged()
-        }
+    lateinit var activity: BaseActivity
 
-        override fun getItemCount(): Int {
-            return data.size
-        }
-
-        override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): LocationViewHolder {
-            val view = LayoutInflater.from(parent?.context).inflate(R.layout.searchlocation_item, null)
-            return LocationViewHolder(view, sendData)
-        }
-
-        override fun onBindViewHolder(holder: LocationViewHolder?, position: Int) {
-            holder?.bind(data.get(position))
-        }
+    init {
+        this.activity = activity
     }
 
-    class LocationViewHolder(view: View, sendData: MemoModel): RecyclerView.ViewHolder(view){
+    var data = emptyArray<LocationListModel>()
+    var sendData = MemoModel()
 
-        lateinit var view: View
-        lateinit var sendData: MemoModel
+    fun bind(data: Array<LocationListModel>, sendData: MemoModel){
+        this.data = data
+        this.sendData = sendData
+        notifyDataSetChanged()
+    }
 
-        init {
-            this.view = view
-            this.sendData = sendData
+    override fun getItemCount(): Int {
+        return data.size
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): LocationViewHolder {
+        val view = LayoutInflater.from(parent?.context).inflate(R.layout.searchlocation_item, null)
+        return LocationViewHolder(view, sendData, activity)
+    }
+
+    override fun onBindViewHolder(holder: LocationViewHolder?, position: Int) {
+        holder?.bind(data.get(position))
+    }
+}
+
+class LocationViewHolder(view: View, sendData: MemoModel, activity: BaseActivity): RecyclerView.ViewHolder(view){
+
+    lateinit var view: View
+    lateinit var sendData: MemoModel
+    lateinit var activity: BaseActivity
+
+    init {
+        this.view = view
+        this.sendData = sendData
+        this.activity = activity
+    }
+
+    fun bind(data: LocationListModel){
+        with(view){
+            id_text.setText(data.name)
         }
 
-        fun bind(data: LocationListModel){
-            with(view){
-                id_text.setText(data.name)
-            }
-
-            view.setOnClickListener {
-                val intent = Intent(LocationSetActivity.this, )
-                val bundle = Bundle()
-                sendData.lati = data.lati
-                bundle.putSerializable("data", sendData)
-                bundle.putSerializable("setData", data)
-
-            }
+        view.setOnClickListener {
+            val intent = Intent(activity, MemoCompleteActivity::class.java)
+            val bundle = Bundle()
+            sendData.lati = data.lati
+            sendData.longi = data.longi
+            Log.e("xxx", "${data.lati} ${data.longi}")
+            bundle.putSerializable("data", sendData)
+            intent.putExtras(bundle)
+            activity.startActivity(intent)
+            activity.finish()
         }
-
     }
 
 }

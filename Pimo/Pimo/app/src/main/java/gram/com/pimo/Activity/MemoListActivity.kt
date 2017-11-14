@@ -88,12 +88,26 @@ class MemoListActivity: BaseActivity(){
         })
     }
 
+    override fun onStart() {
+        super.onStart()
+        dataLoad()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.memo_main)
 
         adapter = MemoListAdapter()
 
+        write_memo.setOnClickListener {
+            val intent = Intent(this, MemoWriteActivity::class.java)
+            startActivity(intent)
+        }
+
+        setListView()
+    }
+
+    fun dataLoad(){
         Connector.api?.loadMemo(getToken())?.enqueue(object : Callback<Array<MemoModel>>{
             override fun onResponse(call: Call<Array<MemoModel>>?, response: Response<Array<MemoModel>>?) {
                 if(response?.code() == 200){
@@ -121,13 +135,6 @@ class MemoListActivity: BaseActivity(){
                 t?.printStackTrace()
             }
         })
-
-        write_memo.setOnClickListener {
-            val intent = Intent(this, MemoWriteActivity::class.java)
-            startActivity(intent)
-        }
-
-        setListView()
     }
 }
 

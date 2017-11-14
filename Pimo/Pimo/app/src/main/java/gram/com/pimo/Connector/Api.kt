@@ -21,7 +21,7 @@ interface Api {
 
     @POST("add_memo")
     @FormUrlEncoded
-    fun addMemo(@Header("Authorization")token: String, @Field("title")title: String, @Field("content")content: String, @Field("latitude")latitude: String, @Field("longitute")longitute: String): Call<JsonObject>
+    fun addMemo(@Header("Authorization")token: String, @Field("title")title: String, @Field("content")content: String, @Field("latitude")latitude: Double, @Field("longitute")longitute: Double): Call<MemoModel>
 
     @DELETE("delete_memo")
     fun deleteMemo(@Header("Authorization")token: String, @Query("_id")id: String): Call<Void>
@@ -30,7 +30,7 @@ interface Api {
     fun loadMemo(@Header("Authorization")token: String): Call<Array<MemoModel>>
 
     @POST("update_memo")
-    fun updateMemo(@Header("Authorization")token: String, @Field("_id")id: String, @Field("title")title: String, @Field("content")content: String, @Field("latitude")latitude: String, @Field("longitute")longitute: String): Call<MemoModel>
+    fun updateMemo(@Header("Authorization")token: String, @Field("_id")id: String, @Field("title")title: String, @Field("content")content: String, @Field("latitude")latitude: Double, @Field("longitute")longitute: Double): Call<MemoModel>
 
     @GET("search_location")
     fun searchLocation(@Query("search")key: String): Call<Array<LocationListModel>>

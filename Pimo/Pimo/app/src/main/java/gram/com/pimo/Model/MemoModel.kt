@@ -12,10 +12,10 @@ import java.io.Serializable
 open class MemoModel: Serializable, RealmObject(){
 
     @SerializedName("longitute")
-    var longi: String = ""
+    var longi: Double = 0.0
 
     @SerializedName("latitude")
-    var lati: String = ""
+    var lati: Double = 0.0
 
     @SerializedName("title")
     var title: String = ""

@@ -40,6 +40,7 @@ class MemoWriteActivity: BaseActivity() {
 
             intent.putExtras(bundle)
             startActivity(intent)
+            finish()
         }
 
     }
